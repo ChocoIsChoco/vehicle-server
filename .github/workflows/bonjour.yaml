@@ -4,10 +4,11 @@ on:
 jobs:
   dire_bonjour:
     runs-on: ubuntu-24.04
-    container:
-      image: ghcr.io/cicd-lectures/gitpod:latest
-      options: --user=root
     steps:
-      - uses: actions/checkout@v5
-      - run: ls -l # Liste les fichier du répertoire courant
-      - run: cat README.md | cowsay # Affiche le contenu du fichier `README.md` à la base du dépôt
+      - name: Checkout du code
+        uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      - run: npm ci
+      - run: npm run build
