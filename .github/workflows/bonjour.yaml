@@ -13,4 +13,4 @@ jobs:
           node-version: '22'
       - run: npm ci
       - run: npm run build
-      - run: npx eslint --fix src
+      - run: npm run lint
