@@ -1,5 +1,8 @@
 name: Bonjour
 on:
+  - pull_request:
+      types:
+        - opened
   - push
 jobs:
   dire_bonjour:
